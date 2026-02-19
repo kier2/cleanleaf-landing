@@ -1,0 +1,13 @@
+# Local Env Secrets
+.env
+.env.local
+
+# Vercel folder
+.vercel
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node (if you ever use it)
+node_modules/
