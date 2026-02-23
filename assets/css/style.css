@@ -249,6 +249,13 @@ ul {
         0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
+.hero-circle--a:hover {
+    transform: translateY(-50%) scale(1.05);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.45),
+        0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
 /* Circle A — large main, center-right, overflows viewport */
 .hero-circle--a {
     width: 340px;
