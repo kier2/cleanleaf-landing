@@ -5,9 +5,9 @@
 - **Hosting:** Vercel Static (No build step).
 
 ## Design & Branding
-- **Primary Color:** #2D5A27 (Deep Forest Green)
-- **Secondary Color:** #F4F7F2 (Pale Mint/Off-white)
-- **Accent Color:** #8BA888 (Sage)
+- **Primary Color:** #3c4151 
+- **Secondary Color:** #F4F7F2
+- **Accent Color:** #f7f8f5
 - **Typography:** Use Google Fonts: 'Montserrat' for headings, 'Open Sans' for body.
 - **Vibe:** Clean, organic, premium, and sustainable.
 

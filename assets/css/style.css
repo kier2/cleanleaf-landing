@@ -68,38 +68,7 @@ ul {
     padding: 0 24px;
 }
 
-/* ─── Header ──────────────────────────────────────────────────────────────── */
-.header {
-    background-color: var(--bg-dark);
-    padding: 0.75rem 0;
-    text-align: center;
-    position: relative;
-    z-index: 100;
-}
-
-.logo {
-    display: inline-block;
-    position: relative;
-}
-
-.logo-img {
-    height: 120px;
-    width: auto;
-    margin: 0 auto;
-    /* Logo hangs 50% below the header into the hero */
-    margin-bottom: -60px;
-    position: relative;
-    z-index: 101;
-    opacity: 0.95;
-    transition: var(--transition);
-    background-color: var(--bg-dark);
-    border-radius: 50%;
-    padding: 12px;
-}
-
-.logo-img:hover {
-    opacity: 1;
-}
+/* ─── Header (kept for potential future use) ─────────────────────────────── */
 
 /* ─── Buttons ─────────────────────────────────────────────────────────────── */
 .btn {
@@ -147,55 +116,174 @@ ul {
 
 /* ─── Hero Section ────────────────────────────────────────────────────────── */
 .hero {
-    background-color: var(--bg-light);
-    background-image: url('../img/Green-Leaf-Background.webp');
+    background-color: var(--bg-dark);
+    background-image: url('../img/Texture-and-Background.png');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    color: var(--text-dark);
-    padding: 5rem 0 6rem;
-    padding-top: calc(60px + 3rem);
-    text-align: center;
+    background-blend-mode: overlay;
+    color: var(--text-white);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
     position: relative;
     overflow: hidden;
 }
 
-/* Soft overlay to lighten the background and keep text readable */
-.hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-color: rgba(247, 248, 245, 0.65);
-    pointer-events: none;
-}
-
-.hero > .container {
+.hero-inner {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem 24px 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
     position: relative;
     z-index: 1;
 }
 
+.hero-logo {
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+
+.hero-logo-img {
+    height: 110px;
+    width: auto;
+    opacity: 0.95;
+    transition: var(--transition);
+}
+
+.hero-logo-img:hover {
+    opacity: 1;
+}
+
 .hero-content {
-    max-width: 750px;
-    margin: 0 auto;
+    max-width: 500px;
+    text-align: left;
+}
+
+.hero-tagline {
+    font-family: 'Questrial', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 0.75rem;
 }
 
 .hero-title {
     font-family: 'Prata', serif;
     font-size: 3.5rem;
     font-weight: 400;
-    color: var(--text-dark);
+    color: var(--text-white);
     margin-bottom: 1.25rem;
-    line-height: 1.15;
+    line-height: 1.12;
 }
 
 .hero-subtitle {
-    font-size: 1.125rem;
-    color: var(--text-light);
-    margin-bottom: 2.5rem;
-    max-width: 560px;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2rem;
     line-height: 1.8;
+    max-width: 420px;
+}
+
+/* Hero CTA — white button on dark bg */
+.btn-hero {
+    background-color: var(--bg-white);
+    color: var(--text-dark);
+    font-weight: 400;
+}
+
+.btn-hero:hover {
+    background-color: var(--bg-light);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* ─── Hero image cluster ─────────────────────────────────────────────────── */
+.hero-images {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 520px;
+    justify-self: end;
+}
+
+/* Decorative accent ring behind the cluster */
+.hero-ring {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.15);
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -50%);
+    pointer-events: none;
+}
+
+.hero-circle {
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    border: 4px solid rgba(255, 255, 255, 0.5);
+    box-shadow:
+        0 12px 48px rgba(0, 0, 0, 0.35),
+        0 4px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-circle:hover {
+    transform: scale(1.05);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.45),
+        0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* Circle A — large main, center-right, overflows viewport */
+.hero-circle--a {
+    width: 340px;
+    height: 340px;
+    top: 50%;
+    right: -60px;
+    transform: translateY(-50%);
+    z-index: 3;
+}
+
+/* Circle B — medium, top-left of cluster */
+.hero-circle--b {
+    width: 220px;
+    height: 220px;
+    top: 10px;
+    left: 0;
+    z-index: 2;
+}
+
+/* Circle C — small, bottom-left */
+.hero-circle--c {
+    width: 170px;
+    height: 170px;
+    bottom: 30px;
+    left: 20px;
+    z-index: 4;
+}
+
+/* Circle D — tiny accent, top-right, partially off-screen */
+.hero-circle--d {
+    width: 130px;
+    height: 130px;
+    top: 0;
+    right: -30px;
+    z-index: 1;
 }
 
 /* ─── Section Base ────────────────────────────────────────────────────────── */
@@ -301,6 +389,10 @@ section {
     line-height: 1.8;
 }
 
+.benefits-list {
+    margin-bottom: 2rem;
+}
+
 .benefits-list li {
     padding: 0.6rem 0;
     font-size: 1rem;
@@ -314,17 +406,22 @@ section {
     align-items: center;
 }
 
-.placeholder-image {
-    width: 100%;
-    max-width: 340px;
-    aspect-ratio: 1;
-    background-color: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+.benefits-img-wrapper {
+    position: relative;
+    width: 340px;
+    height: 340px;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 6rem;
+    background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    filter: drop-shadow(0 16px 40px rgba(0, 0, 0, 0.4)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25));
+}
+
+.benefits-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transform: scale(1.15);
 }
 
 /* ─── Products Section ────────────────────────────────────────────────────── */
@@ -433,9 +530,11 @@ section {
 }
 
 .signup-benefits p {
-    padding: 0.4rem 0;
+    padding: 0.6rem 0;
+    margin-bottom: 0;
     font-size: 1rem;
     color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.01em;
 }
 
 /* Form Styles */
@@ -660,16 +759,63 @@ section {
 
 /* ─── Responsive: Mobile ──────────────────────────────────────────────────── */
 @media (max-width: 768px) {
+    .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-content {
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .hero-logo {
+        margin-bottom: 1.5rem;
+    }
+
     .hero-title {
-        font-size: 2.25rem;
+        font-size: 2.5rem;
     }
 
     .hero-subtitle {
         font-size: 1rem;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 480px;
     }
 
-    .hero {
-        padding: 5rem 0 4rem;
+    .hero-images {
+        min-height: 360px;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .hero-ring {
+        width: 300px;
+        height: 300px;
+    }
+
+    .hero-circle--a {
+        width: 240px;
+        height: 240px;
+        right: -30px;
+    }
+
+    .hero-circle--b {
+        width: 160px;
+        height: 160px;
+    }
+
+    .hero-circle--c {
+        width: 130px;
+        height: 130px;
+    }
+
+    .hero-circle--d {
+        width: 100px;
+        height: 100px;
+        right: -15px;
     }
 
     .section-title {
@@ -695,9 +841,9 @@ section {
         margin-right: auto;
     }
 
-    .placeholder-image {
-        max-width: 260px;
-        font-size: 4rem;
+    .benefits-img-wrapper {
+        width: 260px;
+        height: 260px;
     }
 
     .footer-content {
@@ -712,12 +858,44 @@ section {
 }
 
 @media (max-width: 480px) {
-    .hero {
-        padding: 3.5rem 0 3rem;
+    .hero-inner {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
     }
 
     .hero-title {
-        font-size: 1.875rem;
+        font-size: 2rem;
+    }
+
+    .hero-images {
+        min-height: 300px;
+        max-width: 320px;
+    }
+
+    .hero-circle--a {
+        width: 200px;
+        height: 200px;
+        right: -20px;
+    }
+
+    .hero-circle--b {
+        width: 130px;
+        height: 130px;
+    }
+
+    .hero-circle--c {
+        width: 110px;
+        height: 110px;
+    }
+
+    .hero-circle--d {
+        width: 80px;
+        height: 80px;
+    }
+
+    .hero-ring {
+        width: 240px;
+        height: 240px;
     }
 
     section {
