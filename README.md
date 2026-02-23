@@ -20,9 +20,9 @@ A clean, organic, and premium landing page for CleanLeaf Microgreens built with 
 
 ## Color Palette
 
-- **Primary:** #2D5A27 (Deep Forest Green)
-- **Secondary:** #F4F7F2 (Pale Mint/Off-white)
-- **Accent:** #8BA888 (Sage)
+- **Primary:** #3c4151 
+- **Secondary:** #F4F7F2
+- **Accent:** #f7f8f5
 
 ## Directory Structure
 
